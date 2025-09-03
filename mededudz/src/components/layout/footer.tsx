@@ -14,8 +14,8 @@ export function Footer() {
               <span className="ml-2 text-2xl font-bold">mededudz</span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              Plateforme éducative dédiée à la préparation du concours de résidanat à Constantine. 
-              Nous offrons des cours de qualité, des examens pratiques et une communauté d'apprentissage.
+              Plateforme &eacute;ducative d&eacute;di&eacute;e &agrave; la pr&eacute;paration du concours de r&eacute;sidanat &agrave; Constantine.
+              Nous offrons des cours de qualit&eacute;, des examens pratiques et une communaut&eacute; d&lsquo;apprentissage.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -62,7 +62,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/groups" className="text-gray-300 hover:text-white transition-colors">
-                  Groupes d'étude
+                  Groupes d&apos;étude
                 </Link>
               </li>
             </ul>
@@ -89,14 +89,14 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} mededudz. Tous droits réservés.
+            © {new Date().getFullYear()} mededudz. Tous droits r&eacute;serv&eacute;s.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
               Politique de confidentialité
             </Link>
             <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
-              Conditions d'utilisation
+              Conditions d&apos;utilisation
             </Link>
             <Link href="/cookies" className="text-gray-400 hover:text-white text-sm transition-colors">
               Cookies

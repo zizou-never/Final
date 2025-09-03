@@ -7,6 +7,16 @@ export interface User {
   created_at: string
 }
 
+export interface Profile {
+  id: string
+  user_id: string
+  full_name?: string
+  avatar_url?: string
+  bio?: string
+  created_at: string
+  updated_at: string
+}
+
 export interface Course {
   id: string
   title: string

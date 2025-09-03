@@ -1,5 +1,4 @@
 'use client'
-
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
@@ -16,16 +15,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
-  BookOpen,
-  ClipboardList,
-  Users,
-  MessageSquare,
   BarChart3,
   LogIn,
   LogOut,
   User,
   Settings,
-  ChevronDown,
   Menu,
   X,
 } from 'lucide-react'
@@ -70,13 +64,13 @@ export function Navbar() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={\`
+                    className={`
                       px-3 py-2 rounded-md text-sm font-medium transition-colors
-                      \${isActive(item.href)
+                      ${isActive(item.href)
                         ? 'bg-primary-50 text-primary-700'
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                       }
-                    \`}
+                    `}
                   >
                     {item.name}
                   </Link>
@@ -84,7 +78,6 @@ export function Navbar() {
               </div>
             </div>
           </div>
-
           <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6">
               {loading ? (
@@ -155,7 +148,6 @@ export function Navbar() {
               )}
             </div>
           </div>
-
           <div className="-mr-2 flex md:hidden">
             <Button
               variant="ghost"
@@ -171,7 +163,6 @@ export function Navbar() {
           </div>
         </div>
       </div>
-
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
@@ -179,13 +170,13 @@ export function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={\`
+                className={`
                   block px-3 py-2 rounded-md text-base font-medium transition-colors
-                  \${isActive(item.href)
+                  ${isActive(item.href)
                     ? 'bg-primary-50 text-primary-700'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                   }
-                \`}
+                `}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}

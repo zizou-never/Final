@@ -1,20 +1,15 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { 
-  BookOpen, 
-  ClipboardList, 
-  Users, 
-  MessageSquare, 
-  BarChart3, 
+import {
+  BookOpen,
+  ClipboardList,
+  Users,
+  MessageSquare,
   Clock,
-  Star,
-  ArrowRight,
-  CheckCircle,
-  Lightbulb,
-  Award,
-  TrendingUp
+  ArrowRight
 } from 'lucide-react'
 import { supabase } from '@/lib/supabase'
 
@@ -24,35 +19,16 @@ async function getCourses() {
     .select('*')
     .order('created_at', { ascending: false })
     .limit(6)
-
   if (error) {
     console.error('Error fetching courses:', error)
     return []
   }
-
-  return data || []
-}
-
-async function getExams() {
-  const { data, error } = await supabase
-    .from('exams')
-    .select('*')
-    .eq('is_published', true)
-    .order('created_at', { ascending: false })
-    .limit(3)
-
-  if (error) {
-    console.error('Error fetching exams:', error)
-    return []
-  }
-
   return data || []
 }
 
 export default async function HomePage() {
   const courses = await getCourses()
-  const exams = await getExams()
-
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -93,7 +69,6 @@ export default async function HomePage() {
               Notre plateforme offre des outils complets pour vous aider à préparer efficacement le concours de résidanat.
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-lg bg-primary-100 flex items-center justify-center mb-4">
@@ -104,7 +79,6 @@ export default async function HomePage() {
                 Accédez à des cours complets et structurés par des experts de la médecine.
               </p>
             </div>
-
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-lg bg-secondary-100 flex items-center justify-center mb-4">
                 <ClipboardList className="h-6 w-6 text-secondary-600" />
@@ -114,17 +88,15 @@ export default async function HomePage() {
                 Entraînez-vous avec des examens simulés pour évaluer votre progression.
               </p>
             </div>
-
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-lg bg-accent-100 flex items-center justify-center mb-4">
                 <Users className="h-6 w-6 text-accent-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Groupes d'étude</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Groupes d&apos;étude</h3>
               <p className="text-gray-600">
-                Rejoignez des groupes d'étude pour collaborer et apprendre ensemble.
+                Rejoignez des groupes d&apos;étude pour collaborer et apprendre ensemble.
               </p>
             </div>
-
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center mb-4">
                 <MessageSquare className="h-6 w-6 text-green-600" />
@@ -177,16 +149,16 @@ export default async function HomePage() {
               </Link>
             </Button>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courses.map((course) => (
               <Card key={course.id} className="overflow-hidden hover:shadow-md transition-shadow">
                 <div className="h-48 bg-gray-200 relative">
                   {course.thumbnail_url ? (
-                    <img 
-                      src={course.thumbnail_url} 
-                      alt={course.title} 
-                      className="w-full h-full object-cover"
+                    <Image
+                      src={course.thumbnail_url || ''}
+                      alt={course.title}
+                      fill
+                      className="object-cover"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100">
@@ -215,7 +187,7 @@ export default async function HomePage() {
                     </div>
                   </div>
                   <Button asChild className="w-full">
-                    <Link href={\`/courses/\${course.id}\`}>
+                    <Link href={`/courses/${course.id}`}>
                       Commencer le cours
                     </Link>
                   </Button>
@@ -234,7 +206,7 @@ export default async function HomePage() {
               Prêt à commencer votre préparation ?
             </h2>
             <p className="text-xl mb-8 text-primary-100">
-              Rejoignez des milliers d'étudiants qui ont déjà amélioré leurs résultats avec mededudz.
+              Rejoignez des milliers d&apos;étudiants qui ont déjà amélioré leurs résultats avec mededudz.
             </p>
             <Button asChild size="lg" className="bg-white text-primary-700 hover:bg-gray-100">
               <Link href="/auth/signup">
