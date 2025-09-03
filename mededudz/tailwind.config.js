@@ -55,11 +55,17 @@ module.exports = {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
+          },
+          ring: '#0ea5e9', // primary-500
+          background: '#ffffff',
+          foreground: '#171717',
         },
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-      },
+        ringOffsetColor: {
+          DEFAULT: '#ffffff',
+        },
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
       boxShadow: {
         'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         'medium': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
